@@ -232,6 +232,100 @@ document.querySelectorAll('ion-icon').forEach(icon => {
 // setScrollVar()
 
 
+
+
+//animation list
+//Observer 1: #rise-list1
+const riseList1 = document.querySelector('#rise-list1');
+if (riseList1) {
+    const riseElements1 = document.querySelectorAll('#rise1, #rise2, #rise3, #rise4, #rise5, #rise6, #rise7, #rise8');
+    const observer1 = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                riseElements1.forEach((element) => {
+                    element.classList.add('animate');
+                });
+            }
+        });
+    }, { threshold: 1.0 });
+    observer1.observe(riseList1);
+}
+
+//Observer 2: #rise-list2
+const riseList2 = document.querySelector('#rise-list2');
+if (riseList2) {
+    const riseElements2 = document.querySelectorAll('#rise9, #rise10, #rise11, #rise12, #rise13, #rise14, #rise15, #rise16, #rise17, #rise18, #rise19, #rise20, #rise21, #rise22, #rise23, #rise24, #rise25');
+    const observer2 = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            riseElements2.forEach((element) => {
+                element.classList.add('animate');
+            });
+        }
+    }, { threshold: 0.5 });
+    observer2.observe(riseList2);
+}
+
+//Observer 3: #staggered-list
+const staggeredList = document.querySelector('#staggered-list');
+if (staggeredList) {
+    const observer3 = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+            entries[0].target.classList.add('animate');
+        }
+    }, { threshold: 0.5 });
+    observer3.observe(staggeredList);
+}
+
+//Observer 4: #scaleFade 
+const elementsToObserve = ['#scaleFade1', '#scaleFade2', '#scaleFade3', '#scaleFade4'];
+elementsToObserve.forEach((selector) => {
+    const element = document.querySelector(selector);
+    if (element) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 1.0 });
+        observer.observe(element);
+    }
+});
+
+//Observer 5: .title
+const titleElements = ['.title'];
+titleElements.forEach((selector) => {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach((element) => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 1.0 });
+        observer.observe(element);
+    });
+});
+
+//Observer 6: .column-middle img
+const imageMiddleElements = ['.column-middle img'];
+
+imageMiddleElements.forEach((selector) => {
+    const elements = document.querySelectorAll(selector);
+    elements.forEach((element) => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, { threshold: 0.4 });
+        observer.observe(element);
+    });
+});
+
+
 // Slideshow functionality
 let slideIndex = 1;
 showSlides(slideIndex);
@@ -348,95 +442,4 @@ document.addEventListener('keydown', function (event) {
     if (event.key === "Escape") {
         closeFullscreen();
     }
-});
-
-//animation list
-//Observer 1: #rise-list1
-const riseList1 = document.querySelector('#rise-list1');
-if (riseList1) {
-    const riseElements1 = document.querySelectorAll('#rise1, #rise2, #rise3, #rise4, #rise5, #rise6, #rise7, #rise8');
-    const observer1 = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                riseElements1.forEach((element) => {
-                    element.classList.add('animate');
-                });
-            }
-        });
-    }, { threshold: 1.0 });
-    observer1.observe(riseList1);
-}
-
-//Observer 2: #rise-list2
-const riseList2 = document.querySelector('#rise-list2');
-if (riseList2) {
-    const riseElements2 = document.querySelectorAll('#rise9, #rise10, #rise11, #rise12, #rise13, #rise14, #rise15, #rise16, #rise17, #rise18, #rise19, #rise20, #rise21, #rise22, #rise23, #rise24, #rise25');
-    const observer2 = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-            riseElements2.forEach((element) => {
-                element.classList.add('animate');
-            });
-        }
-    }, { threshold: 0.5 });
-    observer2.observe(riseList2);
-}
-
-//Observer 3: #staggered-list
-const staggeredList = document.querySelector('#staggered-list');
-if (staggeredList) {
-    const observer3 = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-            entries[0].target.classList.add('animate');
-        }
-    }, { threshold: 0.5 });
-    observer3.observe(staggeredList);
-}
-
-//Observer 4: #scaleFade 
-const elementsToObserve = ['#scaleFade1', '#scaleFade2', '#scaleFade3', '#scaleFade4'];
-elementsToObserve.forEach((selector) => {
-    const element = document.querySelector(selector);
-    if (element) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, { threshold: 1.0 });
-        observer.observe(element);
-    }
-});
-
-//Observer 5: .title
-const titleElements = ['.title'];
-titleElements.forEach((selector) => {
-    const elements = document.querySelectorAll(selector);
-    elements.forEach((element) => {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, { threshold: 1.0 });
-        observer.observe(element);
-    });
-});
-
-//Observer 6: .column-middle img
-const imageMiddleElements = ['.column-middle img'];
-
-imageMiddleElements.forEach((selector) => {
-    const elements = document.querySelectorAll(selector);
-    elements.forEach((element) => {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                }
-            });
-        }, { threshold: 0.4 });
-        observer.observe(element);
-    });
 });
