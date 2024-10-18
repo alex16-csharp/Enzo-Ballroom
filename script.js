@@ -443,3 +443,42 @@ document.addEventListener('keydown', function (event) {
         closeFullscreen();
     }
 });
+
+//image gallery
+function openFullscreen(img) {
+    let fullscreenContainer = document.getElementById("fullscreen-container");
+    let fullscreenImage = document.getElementById("fullscreen-image");
+
+    fullscreenImage.src = img.src;
+    fullscreenContainer.style.display = "flex";
+
+    disableScroll();
+
+    fullscreenImage.onclick = function (event) {
+        event.stopPropagation();
+    };
+}
+
+function closeFullscreen() {
+    let fullscreenContainer = document.getElementById("fullscreen-container");
+    fullscreenContainer.style.display = "none";
+
+    enableScroll();
+}
+
+document.addEventListener('keydown', function (event) {
+    if (event.key === "Escape") {
+        closeFullscreen();
+    }
+});
+
+function disableScroll() {
+    document.body.classList.add('no-scroll');
+}
+
+function enableScroll() {
+    document.body.classList.remove('no-scroll');
+}
+
+// Make sure to add this event listener
+document.getElementById("fullscreen-container").addEventListener('click', closeFullscreen);
