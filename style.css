@@ -10,13 +10,13 @@ body {
   font-optical-sizing: auto;
   font-style: normal;
   line-height: 1.6;
-  background-image: url("/images/bgpc.png");
+  background-image: url("./images/bgpc.png");
   background-size: 100% auto;
   background-position: center;
 }
 @media only screen and (orientation: portrait) {
   body {
-    background-image: url("/images/bgphone.png");
+    background-image: url("./images/bgphone.png");
     background-size: 100% auto;
   }
 }
@@ -719,7 +719,7 @@ body {
   }
 }
 .hero-image {
-  background-image: url("/");
+  background-image: url("./images/herobg.jpg");
   background-color: #f2f2f2;
   height: 900px;
   max-height: 697px;
@@ -734,7 +734,7 @@ body {
   text-align: left;
   position: absolute;
   top: 38%;
-  left: 56%;
+  left: 52%;
   transform: translate(-19%, -50%);
   color: #000;
 }
@@ -787,7 +787,7 @@ body {
     font-size: 16px;
     line-height: 1.1;
     top: 48%;
-    left: 55%;
+    left: 44%;
     transform: translate(-13%, -50%);
   }
   .hero-title {
