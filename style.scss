@@ -1,3 +1,12 @@
+//font variables
+$font-family: "Birthstone", serif;
+$font-weight: 400;
+$font-style: normal;
+$letter-spacing: 0.2rem;
+$font-size: 2rem;
+$line-height: 1.6;
+$small-font-size: 2rem;
+
 // colour variables 
 $color-website-backgroud: #fff;
 
@@ -33,10 +42,12 @@ html {
 body {
     // background-color: $color-website-backgroud;
     margin: 0;
-    font-family: "Arimo", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    line-height: 1.6;
+    font-family: $font-family;
+    font-weight: $font-weight;
+    font-style: $font-style;
+    letter-spacing: $letter-spacing;
+    font-size: $font-size;
+    line-height: $line-height;
     background-image: url("./images/bgpc.png");
     background-size: 100% auto;
     background-position: center;
@@ -71,6 +82,12 @@ body {
     font-size: 17px;
     line-height: 70px;
     /* Match the line height with navbar height */
+    font-family: $font-family;
+    font-weight: $font-weight;
+    font-style: $font-style;
+    letter-spacing: $letter-spacing;
+    font-size: $font-size;
+    line-height: $line-height;
 }
 
 #navbar a:hover {
@@ -123,7 +140,7 @@ body {
 }
 
 /* navbar mobile view*/
-@media (max-width: 799px) {
+@media (max-width: 800px) {
     #navbar {
         display: none;
     }
@@ -151,14 +168,22 @@ body {
     justify-content: center;
     align-items: center;
 
-
     .info {
         max-width: 80em;
+    }
+
+    .ml5 {
+        font-family: $font-family;
+        font-weight: $font-weight;
+        font-style: $font-style;
+        letter-spacing: $letter-spacing;
+        font-size: $small-font-size;
+        line-height: $line-height;
     }
 }
 
 /* on Mobile */
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 800px) {
     #info {
         display: none;
     }
@@ -220,14 +245,19 @@ body {
 }
 
 /* Hide the sidebar in desktop view */
-@media (min-width: 800px) {
+@media (min-width: 801px) {
     .sidebar {
         display: none;
     }
 }
 
 .openbtn {
-    font-size: 1.3em;
+    font-family: $font-family;
+    font-weight: $font-weight;
+    font-style: $font-style;
+    letter-spacing: $letter-spacing;
+    font-size: $font-size;
+    line-height: $line-height;
     /* Match the font size with the navigation bar links */
     cursor: pointer;
     background-color: $color-main;
@@ -607,7 +637,9 @@ body {
 #meniu-silver,
 #meniu-gold,
 #antre,
-#enzo-ballroom {
+#enzo-ballroom,
+#bunatati-de-acasa1,
+#bunatati-de-acasa2 {
     // padding-top: 70px;
     scroll-margin-top: 100px;
 }
@@ -789,6 +821,11 @@ body {
 .column-4 a {
     text-decoration: none; // remove underline
     color: $color-text-dark;
+    font-family: $font-family;
+    font-weight: $font-weight;
+    font-style: $font-style;
+    letter-spacing: $letter-spacing;
+    font-size: $font-size;
 }
 
 /* Create three equal columns that floats next to each other */
@@ -884,6 +921,7 @@ body {
     left: 52%;
     transform: translate(-19%, -50%);
     color: $color-text-dark;
+
 }
 
 .hero-text a {
@@ -892,10 +930,15 @@ body {
     font-size: inherit;
     font-weight: inherit;
     font-family: inherit;
+    font-family: $font-family;
+    font-weight: $font-weight;
+    font-style: $font-style;
+    letter-spacing: $letter-spacing;
+    line-height: $line-height;
 }
 
-.hero-title {
-    font-size: 1.5rem;
+.hero-text {
+    font-size: $font-size;
 }
 
 .hero-text button {
@@ -908,7 +951,7 @@ body {
     background-color: $color-main;
     text-align: center;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: $font-size;
 }
 
 .hero-text button:hover {
@@ -933,23 +976,26 @@ body {
         margin-left: -20px;
         /* Add negative left margin to extend text to the left */
         text-align: center;
-        font-size: 16px;
         line-height: 1.1;
         top: 48%;
         left: 44%;
         transform: translate(-13%, -50%);
+        font-size: 1.8rem;
+
     }
 
     .hero-title {
         line-height: 1.1;
-        font-size: 16px;
+        font-size: 1.8rem;
     }
 
 
     .hero-text button {
         padding: 10px 20px;
-        font-size: 14px;
+        font-size: 1.8rem;
     }
+
+
 }
 
 //tablet view styles
@@ -957,19 +1003,15 @@ body {
     .hero-image {
         height: 597px;
     }
-
-    .hero-text {
-        font-size: 1.1rem
-    }
 }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 801px) {
     .hero-title {
         font-size: 2rem
     }
 
     .hero-text {
-        font-size: 1.2rem
+        font-size: 2rem
     }
 }
 
@@ -1117,9 +1159,9 @@ div.card img {
 }
 
 div.card-desc {
-    padding: 15px;
+    // padding: 15px;
     text-align: center;
-    font-size: 18px;
+    font-size: 28px;
     color: #666;
 }
 
@@ -1157,7 +1199,7 @@ div.card-desc {
 .media-wrap {
     padding: 0 6px;
     float: left;
-    width: 45.99999%;
+    width: 45%;
     margin: 1.5rem 0.5rem 1.5rem 0.5rem;
 }
 
@@ -1191,7 +1233,7 @@ div.card-desc {
     background-color: #f9f9f9;
     box-shadow: $light-shadow;
     border-radius: 35px;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     flex-basis: 50%;
     align-items: center;
 
@@ -1205,7 +1247,11 @@ div.card-desc {
 .column-contact a {
     text-decoration: none; // remove underline
     color: $color-text-light;
-    font-size: 1.2rem;
+    font-family: $font-family;
+    font-weight: $font-weight;
+    font-style: $font-style;
+    letter-spacing: $letter-spacing;
+    font-size: $font-size;
 }
 
 .column-contact h1 {
@@ -1251,18 +1297,20 @@ div.card-desc {
     flex-direction: column;
     align-items: center;
     text-align: center;
+
 }
 
 .contact-form,
 .column-contact p {
     margin-top: 0;
     margin-top: 2.5rem;
-    font-size: 1rem;
+    font-size: 1.6rem;
     color: $color-text-dark;
 }
 
 .contact-form h1 {
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 .contact-form label {
@@ -1297,7 +1345,11 @@ div.card-desc {
     a {
         text-decoration: none; // remove underline
         color: $color-text-light;
-        font-size: 1.2rem;
+        font-family: $font-family;
+        font-weight: $font-weight;
+        font-style: $font-style;
+        letter-spacing: $letter-spacing;
+        font-size: $font-size;
     }
 }
 

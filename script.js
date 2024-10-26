@@ -130,7 +130,7 @@ anime.timeline({ loop: false })
         targets: '.ml6 .line2',
         duration: 1000,
         easing: "easeOutExpo",
-        translateY: (el, i) => (-1.9 + 1.9 * 2 * i) + "em"
+        translateY: (el, i) => (-0.5 + 0.5 * 2 * i) + "em"
     }).add({
         targets: '.ml6 .ampersand2',
         opacity: [0, 1],
@@ -272,7 +272,7 @@ if (staggeredList) {
         if (entries[0].isIntersecting) {
             entries[0].target.classList.add('animate');
         }
-    }, { threshold: 0.5 });
+    }, { threshold: 0.3 });
     observer3.observe(staggeredList);
 }
 
