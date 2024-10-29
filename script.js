@@ -482,3 +482,108 @@ function enableScroll() {
 
 // Make sure to add this event listener
 document.getElementById("fullscreen-container").addEventListener('click', closeFullscreen);
+
+//auto fullscreen video media
+// Function to handle fullscreen video
+function openVideoFullscreen(video) {
+    if (video.requestFullscreen) {
+        video.requestFullscreen();
+    } else if (video.webkitRequestFullscreen) { // Safari
+        video.webkitRequestFullscreen();
+    } else if (video.msRequestFullscreen) { // IE11
+        video.msRequestFullscreen();
+    }
+}
+
+// Add click event listeners to all videos
+document.addEventListener('DOMContentLoaded', function () {
+    const videos = document.querySelectorAll('video');
+    videos.forEach(video => {
+        video.addEventListener('click', function () {
+            openVideoFullscreen(this);
+        });
+    });
+});
+
+//video not active
+document.addEventListener('DOMContentLoaded', function () {
+    const videos = document.querySelectorAll('video');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.target.tagName === 'VIDEO') {
+                if (entry.isIntersecting) {
+                    // Video is in view
+                    if (entry.target.paused && entry.target.readyState >= 2) {
+                        entry.target.play();
+                    }
+                } else {
+                    // Video is out of view
+                    if (!entry.target.paused) {
+                        entry.target.pause();
+                    }
+                }
+            }
+        });
+    }, { threshold: 0.5 }); // Adjust this value as needed
+
+    videos.forEach(video => {
+        observer.observe(video);
+    });
+});
+
+//autoplay video when active
+// ... (keep your existing code)
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        // Pause all videos
+        let video = slides[i].querySelector('video');
+        if (video) {
+            video.pause();
+        }
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+
+    // Play the video in the active slide if it exists
+    let activeVideo = slides[slideIndex - 1].querySelector('video');
+    if (activeVideo) {
+        activeVideo.play().catch(error => {
+            console.log("Autoplay was prevented:", error);
+        });
+    }
+}
+
+// Modify your plusSlides and currentSlide functions:
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+// Add this event listener at the end of your file
+document.addEventListener('DOMContentLoaded', function () {
+    const videos = document.querySelectorAll('.mySlides video');
+    videos.forEach(video => {
+        video.addEventListener('visibilitychange', function () {
+            if (document.hidden) {
+                video.pause();
+            }
+        });
+    });
+
+    // Start the slideshow
+    showSlides(slideIndex);
+});
